@@ -1,0 +1,70 @@
+﻿@page "/todo"
+@using BlogPostProject.Common.Models
+@inject HttpClient Http
+<h1>Todo List</h1>
+@if (_loaded)
+{
+    if (_todos != null)
+    {
+        <div class="card">
+            <h3 class="card-header">Current Tasks</h3>
+            <div class="card-body">
+                @foreach (var todo in _todos)
+                {
+                    if (!todo.Complete)
+                    {
+                        <div>
+                            <input type="checkbox" checked="@todo.Complete" @onchange="@(async () => await CheckChanged(todo))" /> @todo.Name
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    }
+    <div class="card">
+        <h3 class="card-header">Functions</h3>
+        <div class="card-body">
+            <input type="text" @bind="_new.Name" />
+            <button class="btn btn-success" type="submit" disabled="@_isTaskRunning" @onclick="@(async () => await CreateTodo())">Add Task</button>
+        </div>
+    </div>
+
+}
+else
+{
+    <div>Loading...</div>
+}
+@code {
+    IEnumerable<Todo> _todos;
+    bool _loaded;
+    bool _isTaskRunning = false;
+    readonly Todo _new = new Todo();
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadTodos();
+        _loaded = true;
+    }
+
+    private async Task LoadTodos()
+    {
+        _todos = await Http.GetFromJsonAsync<IEnumerable<Todo>>("https://blogpostfunctions.azurewebsites.net/api/GetTodos");
+    }
+
+    private async Task CheckChanged(Todo todo)
+    {
+        todo.Complete = !todo.Complete;
+        await Http.PutAsJsonAsync("https://blogpostfunctions.azurewebsites.net/api/PutTodo", todo);
+    }
+
+    public async Task CreateTodo()
+    {
+        _isTaskRunning = true;
+        _new.Complete = false;
+        _new.DateAdded = DateTime.UtcNow;
+        await Http.PostAsJsonAsync("https://blogpostfunctions.azurewebsites.net/api/PostTodo", _new);
+        _new.Name = "";
+        await LoadTodos();
+        _isTaskRunning = false;
+    }
+}

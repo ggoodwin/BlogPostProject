@@ -1,0 +1,9 @@
+E:\code\BlogPostProject\BlogPostProject.Common\bin\Release\netcoreapp3.1\BlogPostProject.Common.deps.json
+E:\code\BlogPostProject\BlogPostProject.Common\bin\Release\netcoreapp3.1\BlogPostProject.Common.dll
+E:\code\BlogPostProject\BlogPostProject.Common\bin\Release\netcoreapp3.1\BlogPostProject.Common.pdb
+E:\code\BlogPostProject\BlogPostProject.Common\obj\Release\netcoreapp3.1\BlogPostProject.Common.csprojAssemblyReference.cache
+E:\code\BlogPostProject\BlogPostProject.Common\obj\Release\netcoreapp3.1\BlogPostProject.Common.AssemblyInfoInputs.cache
+E:\code\BlogPostProject\BlogPostProject.Common\obj\Release\netcoreapp3.1\BlogPostProject.Common.AssemblyInfo.cs
+E:\code\BlogPostProject\BlogPostProject.Common\obj\Release\netcoreapp3.1\BlogPostProject.Common.csproj.CoreCompileInputs.cache
+E:\code\BlogPostProject\BlogPostProject.Common\obj\Release\netcoreapp3.1\BlogPostProject.Common.dll
+E:\code\BlogPostProject\BlogPostProject.Common\obj\Release\netcoreapp3.1\BlogPostProject.Common.pdb
