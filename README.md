@@ -1,2 +1,3 @@
 # BlogPostProject
-From article https://ggblog.io/go-serverless-with-blazor-cosmosdb-and-azure-function
+
+From blog article [Go Serverless With Blazor and Azure Functions](https://www.greggoodwin.com/go-serverless-with-blazor-and-azure-functions/)
